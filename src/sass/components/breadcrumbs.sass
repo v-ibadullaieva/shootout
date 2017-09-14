@@ -1,0 +1,19 @@
+.breadcrumbs__link
+  display: inline-block;
+  font-size:  16px;
+  color: $grey-600;
+  font-weight: 700;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  &:after
+    content: $fa-var-chevron-right;
+    @include fa-icon;
+    font-size: 14px;
+    margin-left: 20px;
+  &:last-child
+    color: $violet-500;
+    &:after
+      display: none;

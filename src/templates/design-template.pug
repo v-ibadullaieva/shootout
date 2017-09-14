@@ -1,0 +1,69 @@
+include mixins/button
+include mixins/breadcrumbs
+include mixins/user_logo
+
+html
+  head
+    meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    title CRM
+    link(rel="stylesheet" type="text/css" href="./css/manifest.css")
+    link(href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet")
+
+  body
+    main.d-flex
+      aside.main-sidebar
+        h1.main-sidebar__title.pt-50 CRM
+        .main-sidebar__list
+          a.main-sidebar__list-link.active(href="#")
+            span.d-flex
+              i.main-sidebar__list-icon.fa.fa-tachometer
+              |Dashboard
+          a.main-sidebar__list-link(href="#")
+            span.d-flex
+              i.main-sidebar__list-icon.fa.fa-pie-chart
+              |Dashboard
+          a.main-sidebar__list-link(href="#")
+            span.d-flex
+              i.main-sidebar__list-icon.fa.fa-briefcase
+              |Dashboard
+          a.main-sidebar__list-link(href="#")
+            span.d-flex
+              i.main-sidebar__list-icon.fa.fa-calendar
+              |Dashboard
+      .page-container
+        header.main-header
+          +breadcrumbs("Customers", "Max Jones")(class="mr-10")
+          .main-header__right-section
+            .main-header__search.mr-40
+              input.main-header__search-input(type="text" name="search" placeholder="SEARCH")
+              i.main-header__search-icon.fa.fa-search
+            a.notification.mr-40(href="#")
+              i.fa.fa-bell
+              span.notification__text 4
+            .d-flex.align-items-center
+              +user_logo(class="mr-10" style="background-image: url(http://s3.amazonaws.com/cdn.roosterteeth.com/default/md/user_profile_female.jpg)")
+              p.font-16.in-grey-600.mb-10 Hello Lauren
+        section.main-content
+          .d-flex.mb-80
+            +user_logo("lg")(class="mr-40" style="background-image: url(http://s3.amazonaws.com/cdn.roosterteeth.com/default/md/user_profile_female.jpg)")
+            .flex-grow-1.pr-30
+              .user-info__wrap
+                p.user-info__name
+                  |Max Jones
+                  span.user-info__status gold
+                p.user-info__position Sales & Marketing
+              .user-info__table-wrap
+                div
+                  p.user-info__label phone
+                  p.user-info__text (+31) 140 175 468
+                div
+                  p.user-info__label Address
+                  p.user-info__text Binnenweg 50, Rotterdam
+                div
+                  +button("create quote")(class="mr-35")
+        section
+          .bg-white.pl-35
+            a.main-tabs__link.active(href="#") Overview
+            a.main-tabs__link(href="#") Orders
+            a.main-tabs__link(href="#") Payments
+          .main-tabs__content
